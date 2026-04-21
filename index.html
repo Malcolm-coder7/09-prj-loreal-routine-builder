@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -23,9 +23,23 @@
         <h1 class="site-title">Smart Routine &amp; Product Advisor</h1>
       </header>
 
-      <!-- Category Filter -->
-      <div class="search-section">
-        <select id="categoryFilter">
+      <!-- RTL Toggle -->
+      <div style="text-align: right; margin-bottom: 10px">
+        <label> <input type="checkbox" id="rtlToggle" /> RTL Mode </label>
+      </div>
+
+      <!-- Search Bar & Category Filter -->
+      <div
+        class="search-section"
+        style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center"
+      >
+        <input
+          type="text"
+          id="searchBar"
+          placeholder="Search products..."
+          style="flex: 2; min-width: 180px; padding: 8px"
+        />
+        <select id="categoryFilter" style="flex: 1; min-width: 160px">
           <option value="" disabled selected>Choose a Category</option>
           <option value="cleanser">Cleansers</option>
           <option value="moisturizer">Moisturizers & Treatments</option>
@@ -39,24 +53,32 @@
         </select>
       </div>
 
-      <!-- Products Grid -->
-      <div id="productsContainer" class="products-grid"></div>
-
       <!-- Selected Products -->
       <div class="selected-products">
         <h2>Selected Products</h2>
         <div id="selectedProductsList"></div>
-        <button id="generateRoutine" class="generate-btn">
-          <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Routine
-        </button>
+        <div style="margin: 8px 0">
+          <button id="clearSelections" style="display: none">Clear All</button>
+        </div>
       </div>
+
+      <!-- Products Grid -->
+      <div id="productsContainer" class="products-grid"></div>
+
+      <!-- Generate Routine Button -->
+      <button
+        id="generateRoutine"
+        class="generate-btn"
+        style="width: 100%; margin: 18px 0"
+      >
+        <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Routine
+      </button>
 
       <!------- Chat Area ------->
       <section class="chatbox">
         <h2>Let's Build Your Routine</h2>
         <div id="chatWindow" class="chat-window"></div>
-
-        <form id="chatForm" class="chat-form">
+        <form id="chatForm" class="chat-form" autocomplete="off">
           <label for="userInput" class="visually-hidden">Message</label>
           <input
             id="userInput"
